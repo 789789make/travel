@@ -4,8 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import fastClick from 'fastclick'
-import './assets/style/reset.css'
-import './assets/style/border.css'
+import 'style/iconfont.css'
+import 'style/reset.css'
+import 'style/border.css'
+
+
 Vue.config.productionTip = false
 fastClick.attach(document.body);//快速点击，移动端click有300ms延迟
 
