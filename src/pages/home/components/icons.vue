@@ -62,7 +62,8 @@
 <script >
 	export default{
 		name:'headerIcon',
-		props:{
+		props:
+		{
 			icons: Array
 		},
 		data(){
