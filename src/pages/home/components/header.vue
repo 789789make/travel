@@ -5,10 +5,10 @@
 </div>
 <div class="header-input">
 <span class="iconfont">&#xe632;</span> 输入城市景点/游玩主题</div>
-<div class="header-right">城市 <span class="iconfont">&#xe6aa;</span></div>
+<div class="header-right">{{this.city}} <span class="iconfont">&#xe6aa;</span></div>
 </div>
 </template>
-</script>
+
 <style lang='stylus' scoped>
 @import '~style/varibles.styl'
 .header
@@ -35,9 +35,14 @@
 		text-align: center
 		font-size: .3rem
 </style>
-
 <script>
-export default{
-  name:'homeHeader'
+export default 
+{
+  name:'homeHeader',
+  props:
+  {
+  	'city':String
+  }
 }
+</script>
 

@@ -2,7 +2,7 @@
 	<div class="recommend">
 		<div class="recommend-title">热销推荐</div>
 		<ul>
-			<li class="recommend-item border-bottom" v-for='item in recommendList' :key='item.id'>
+			<li class="recommend-item border-bottom" v-for='item in recommend' :key='item.id'>
 				<div class="item">
 				<img class="item-img" :src="item.imgUrl" alt="">
 				</div>
@@ -18,12 +18,12 @@
 <style lang='stylus' scoped>
 @import '~style/varibles.styl'
 .recommend
-	margin-top: .1rem
 	.recommend-title
 		background: #ccc
 		line-height: .6rem
 		text-indent: .2rem
 	.recommend-item
+		padding-bottom: .05rem
 		display: flex
 		height: 1.9rem
 		.item-img
@@ -57,30 +57,9 @@
 <script>
 	export default{
     	name:'recommend',
-    	data(){
-    		return {
-    			recommendList:[{
-    				id:'0001',
-    				imgUrl:'http://img1.qunarzz.com/sight/p0/1712/16/16dd785ae3e2447ba3.img.jpg_200x200_c0ef018f.jpg',
-    				title:'峨眉山',
-    				desc:'中国四大佛教名山之一'
-    				},{
-    				id:'0002',
-    				imgUrl:'http://img1.qunarzz.com/sight/p0/1502/e0/e055cb2c79da8f33.water.jpg_200x200_93193a93.jpg',
-    				title:'药王谷',
-    				desc:''
-    				},{
-    				id:'0003',
-    				imgUrl:'http://img1.qunarzz.com/sight/p0/1610/a3/a33deca6343fe55ba3.water.jpg_200x200_e0dd90e7.jpg',
-    				title:'红珠山森林温泉',
-    				desc:'树林之间点缀的19个温泉池极具特色'
-    				},{
-    				id:'0004',
-    				imgUrl:'http://img1.qunarzz.com/sight/p0/1512/f8/f8009e80c6f8c7f990.water.jpg_200x200_6f8e0c8f.jpg',
-    				title:'金顶',
-    				desc:'领略峨眉山四大奇观'
-    				}]
-    		}
+    	props:
+    	{
+    		recommend: Array
     	}
 	}
 </script>
