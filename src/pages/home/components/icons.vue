@@ -25,6 +25,7 @@
 <style lang='stylus' scpoed>
 @import '~style/varibles.styl'
 .icons 
+	margin-top: .1rem
 	.swiperContent
 		height: 0
 		padding-bottom: 50%
