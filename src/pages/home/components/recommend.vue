@@ -2,25 +2,26 @@
 	<div class="recommend">
 		<div class="recommend-title">热销推荐</div>
 		<ul>
-			<li class="recommend-item border-bottom" v-for='item in recommendList'>
+			<li class="recommend-item border-bottom" v-for='item in recommendList' :key='item.id'>
+				<div class="item">
 				<img class="item-img" :src="item.imgUrl" alt="">
+				</div>
 				<div class="item-info">
 					<p class="item-title">{{item.title}}</p>
 					<p class="item-desc">{{item.desc}}</p>
 					<button class="item-total">查看详情</button>
 				</div>
-				
 			</li>
 		</ul>
 	</div>
 </template>
-<style lang='stylus' sope>
+<style lang='stylus' scoped>
 @import '~style/varibles.styl'
 .recommend
 	margin-top: .1rem
 	.recommend-title
 		background: #ccc
-		line-height: .8rem
+		line-height: .6rem
 		text-indent: .2rem
 	.recommend-item
 		display: flex
