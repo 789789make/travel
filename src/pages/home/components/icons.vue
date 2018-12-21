@@ -1,6 +1,6 @@
 <template>
 	<div class="icons">
-		<swiper class='swiperContent' :options="swiperOption" ref="mySwiper"  v-if='showIcons' >
+		<swiper class='swiperContent' :options="swiperOption" ref="mySwiper" v-if='ifIcons'>
 		<swiper-slide v-for='item in pages' :key='item.id'>
 		<div class="icon" v-for='items in item' >
 			<div class="iconImg">
@@ -87,7 +87,8 @@
 					})
 				return pages
 			},
-			showIcons:function(){
+			ifIcons:function()
+			{
 				return this.icons.length
 			}
 		}
