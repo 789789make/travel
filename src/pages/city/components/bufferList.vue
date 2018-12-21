@@ -1,14 +1,7 @@
 <template>
 	<div class="bfList">
 		<ul>
-			<li class="item">A</li>
-			<li class="item">B</li>
-			<li class="item">C</li>
-			<li class="item">D</li>
-			<li class="item">E</li>
-			<li class="item">F</li>
-			<li class="item">G</li>
-			<li class="item">H</li>
+			<li class="item" v-for='(item,index) in bflist'>{{index}}</li>
 		</ul>
 	</div>
 </template>
@@ -29,6 +22,7 @@
 
 <script>
 export default{
-	name:'bfList'
+	name:'bfList',
+	props:['bflist']
 }
 </script>

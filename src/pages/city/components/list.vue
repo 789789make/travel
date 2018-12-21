@@ -2,72 +2,17 @@
 	<div class="list" ref='wrapper'>
 		<div >
 		<div class="area">
-			<div class="title">当前城市</div>
-			<div class="container blockCity">
-				<div class='container-item'>北京</div>
-				<div class='container-item'>北京</div>
-				<div class='container-item'>北京</div>
-				<div class='container-item'>北京</div>
-				<div class='container-item'>北京</div>
-			</div>
-		</div>
-		<div class="area">
 			<div class="title">热门城市</div>
 			<div class="container blockCity">
-				<div class='container-item'>北京</div>
+				<div class='container-item' v-for='item of hotlist' :key='item.id'>{{item.name}}</div>
 			</div>
 		</div>
-		<div class="area">
-			<div class="title ">A</div>
+		<div class="area" v-for='(item,index) of citylist' :key='index'>
+			<div class="title" >{{index}}</div>
 			<div class="container">
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>	
+				<div class="item" v-for='(items,index) of item'>{{items.name}}</div>
 			</div>
 		</div>
-		<div class="area">
-			<div class="title ">A</div>
-			<div class="container">
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>	
-			</div>
-		</div>
-		<div class="area">
-			<div class="title ">A</div>
-			<div class="container">
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>	
-			</div>
-		</div>
-		<div class="area">
-			<div class="title ">A</div>
-			<div class="container">
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>
-				<div class="item">北京</div>	
-			</div>
 		</div>
 	</div>
 	</div>
@@ -88,8 +33,6 @@
 			line-height: .1rem
 			color: rgba(0,0,0,.8)
 			padding: .3rem .1rem
-		.blockCity
-			padding-right: .4rem
 		.container
 			overflow: hidden
 			.item
@@ -100,7 +43,9 @@
 				border-bottom: .03rem solid #eee
 				padding-left: .1rem
 				font-size: .30rem
+				$ellipsis()
 			.container-item
+				$ellipsis()
 				text-align:center
 				float: left
 				width: 33.33%
@@ -115,6 +60,7 @@ import bscroll from 'better-scroll'
 export default
 {
 	name:'list',
+	props:['hotlist','citylist'],
 	mounted ()
 	{
 		this.scroll = new bscroll(this.$refs.wrapper)
