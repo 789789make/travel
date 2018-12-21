@@ -1,7 +1,7 @@
 <template>
 	<div class="city">
 		<city-header></city-header>
-		<city-search></city-search>
+		<city-search :cities='cityList'></city-search>
 		<city-list :hotlist='hotCityList' :citylist='cityList' :buffer='buffer'></city-list>
 		<bf-list :bflist='cityList' @change='handleBfChange'></bf-list>
 	</div>

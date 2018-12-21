@@ -21,7 +21,7 @@
 .bfList
 	overflow: hiddem
 	position: absolute
-	z-index: 999
+	z-index: 2
 	right:0
 	top:50%
 	transform:translate(0,-50%)

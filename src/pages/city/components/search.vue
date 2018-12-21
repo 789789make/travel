@@ -1,6 +1,14 @@
 <template>
+	<div>
 	<div class="search">
-		<input class="search-input" type="text" placeholder="输入城市名或拼音">
+		<input v-model='keyword' class="search-input" type="text" placeholder="输入城市名或拼音">
+	</div>
+	<div class="search-content" v-show='ifSearch'>
+		<ul>
+			<li class="search-item" v-for='item of searchList' :key='item.id'>{{item.name}}</li>
+			<li class="search-item" v-show='!ifResult'>没有匹配的数据</li>
+		</ul>
+	</div>
 	</div>
 </template>
 
@@ -21,10 +29,66 @@
 		heigth: .62rem
 		line-height: .62rem
 		text-align: center
+.search-content
+	z-index: 3
+	position: absolute
+	background: #eee
+	top: 1.68rem
+	left: 0
+	right: 0
+	bottom: 0
+	overflow: hidden
+	.search-item
+		width: 100%
+		box-sizing: border-box
+		line-height: .8rem
+		font-size: .28rem
+		background: white
+		border-bottom: .02rem solid #eee
+		padding-left: .1rem
 </style>
 
 <script>
 	export default{
-		name:'search'
+		name:'search',
+		props:['cities'],
+		data(){
+			return {
+				keyword:'',
+				timer:null,
+				searchList:''
+			}
+		},
+		computed:{
+			ifSearch:function(){
+				return this.keyword
+			},
+			ifResult:function(){
+				return this.searchList.length
+			}
+
+		},
+		watch:{
+			keyword:function(){
+				if(this.timer){
+					clearTimeout(this.timer)
+				}
+				this.timer=setTimeout(()=>
+				{
+					var res=[]
+					if(this.keyword){
+					for(var i in this.cities){
+						this.cities[i].forEach((item,index)=>{
+							if(item.name.indexOf(this.keyword)!=-1||item.spell.indexOf(this.keyword)!=-1)
+							{
+								res.push(item)
+							}
+						})
+					}
+					this.searchList=res
+				}
+				},50)
+			}
+		}
 	}
 </script>
