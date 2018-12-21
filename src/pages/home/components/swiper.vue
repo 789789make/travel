@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper">
-	<swiper :options="swiperOption" ref="mySwiper" v-if='showSwiper'>
-    <swiper-slide v-for='item in swiper' :key='item.id' >
+	<swiper :options="swiperOption" ref="mySwiper" v-if='ifSwiper'>
+    <swiper-slide v-for='item in swiper' :key='item.id'>
     	<img class="swiper-img" :src="item.imgUrl" alt="">
     </swiper-slide>
     <div class="swiper-pagination"  slot="pagination"></div>
@@ -29,8 +29,10 @@
 				}
 			}
 		},
-		computed:{
-			showSwiper(){
+		computed:
+		{
+			ifSwiper()
+			{
 				return this.swiper.length
 			}
 		}
