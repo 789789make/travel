@@ -69,13 +69,16 @@ export default{
 		{
 			if(this.ifTouch)
 			{	
-				const startBf=e.target.innerText
-				const startIndex=this.buffers.indexOf(startBf)
-				const startPosition=this.$refs[startBf][0].offsetTop
-				const nowPosition=e.touches[0]['clientY']-89-30
-				const sub=nowPosition
+				const startPosition=this.$refs['A'][0].offsetTop
+				console.log(this.$refs['A'][0].offsetTop)
+				const nowPosition=e.touches[0]['clientY']-89-20
+				const sub=nowPosition-startPosition
+				console.log(sub)
 				const indexBf=Math.floor(sub/20)
-				this.$emit('change',this.buffers[indexBf])
+				if(indexBf>=0&&indexBf<this.buffers.length){
+					this.$emit('change',this.buffers[indexBf])
+				}
+			
 			}
 		},
 		handleTouchEnd:function()
