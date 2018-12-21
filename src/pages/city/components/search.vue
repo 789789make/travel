@@ -56,17 +56,14 @@
 			return {
 				keyword:'',
 				timer:null,
-				searchList:''
+				searchList:'',
+				ifResult:true
 			}
 		},
 		computed:{
 			ifSearch:function(){
 				return this.keyword
 			},
-			ifResult:function(){
-				return this.searchList.length
-			}
-
 		},
 		watch:{
 			keyword:function(){
@@ -86,6 +83,7 @@
 						})
 					}
 					this.searchList=res
+					this.ifResult=this.searchList.length
 				}
 				},50)
 			}
