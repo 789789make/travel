@@ -28,8 +28,8 @@
 		height: 1.9rem
 		.item-img
 			height: 1.6rem
-			width: 2.8rem
-			padding: .2rem
+			width: 3.0rem
+			padding: .2rem .2rem
 		.item-info
 			possition: relative
 			flex:1
@@ -46,7 +46,7 @@
 				color: rgba(192,192,192,1)
 			.item-total
 				position:absolute
-				bottom: .1rem
+				bottom: .17rem
 				font-size: .05rem
 				background: #ff9300
 				padding: .02rem .1rem

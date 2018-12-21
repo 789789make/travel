@@ -2,12 +2,23 @@
 	<div class="list" ref='wrapper'>
 		<div >
 		<div class="area">
+			<div class="title">当前城市</div>
+			<div class="container blockCity">
+				<div class='container-item'>北京</div>
+			</div>
+		</div>
+		<div class="area">
 			<div class="title">热门城市</div>
 			<div class="container blockCity">
 				<div class='container-item' v-for='item of hotlist' :key='item.id'>{{item.name}}</div>
 			</div>
 		</div>
-		<div class="area" v-for='(item,index) of citylist' :key='index'>
+		<div 
+		class="area" 
+		v-for='(item,index) of citylist' 
+		:key='index'
+		:ref='index'
+		>
 			<div class="title" >{{index}}</div>
 			<div class="container">
 				<div class="item" v-for='(items,index) of item'>{{items.name}}</div>
@@ -60,10 +71,21 @@ import bscroll from 'better-scroll'
 export default
 {
 	name:'list',
-	props:['hotlist','citylist'],
+	props:['hotlist','citylist','buffer'],
 	mounted ()
 	{
 		this.scroll = new bscroll(this.$refs.wrapper)
+	},
+	watch:{
+			buffer:function()
+			{
+				if(this.buffer)
+				{
+					const ele=this.$refs[this.buffer][0]
+					this.scroll.scrollToElement(ele)
+				}
+			}
+
+		}
 	}
-}
 </script>

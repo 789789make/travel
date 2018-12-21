@@ -2,8 +2,8 @@
 	<div class="city">
 		<city-header></city-header>
 		<city-search></city-search>
-		<city-list :hotlist='hotCityList' :citylist='cityList'></city-list>
-		<bf-list :bflist='cityList'></bf-list>
+		<city-list :hotlist='hotCityList' :citylist='cityList' :buffer='buffer'></city-list>
+		<bf-list :bflist='cityList' @change='handleBfChange'></bf-list>
 	</div>
 </template>
 
@@ -25,7 +25,8 @@ import bfList from './components/bufferList'
 		data(){
 			return{
 				hotCityList:[],
-				cityList:[]
+				cityList:[],
+				buffer:''
 			}
 		},
 		mounted(){
@@ -47,6 +48,10 @@ import bfList from './components/bufferList'
 					}
 				}
 				
+			},
+			handleBfChange:function(val)
+			{
+				this.buffer=val;
 			}
 		}
 	}
