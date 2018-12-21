@@ -44,10 +44,8 @@ import bfList from './components/bufferList'
 					if(data.ret){
 						this.hotCityList = data.data.hotCities
 						this.cityList = data.data.cities
-						console.log(data.data.cities)
 					}
 				}
-				
 			},
 			handleBfChange:function(val)
 			{

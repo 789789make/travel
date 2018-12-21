@@ -16,7 +16,6 @@
 		</ul>
 	</div>
 </template>
-
 <style lang='stylus' scoped>
 @import '~style/varibles.styl'
 .bfList
@@ -40,7 +39,8 @@ export default{
 	data()
 	{
 		return {
-			ifTouch:false
+			ifTouch:false,
+			timer:null
 	}
 	},
 	computed:
@@ -64,21 +64,22 @@ export default{
 		handleTouchStart:function(e)
 		{
 			this.ifTouch = true
+			this.$emit('change',e.target.innerText)
 		},
 		handleTouchMove:function(e)
-		{
+		{	
 			if(this.ifTouch)
 			{	
-				const startPosition=this.$refs['A'][0].offsetTop
-				console.log(this.$refs['A'][0].offsetTop)
-				const nowPosition=e.touches[0]['clientY']-89-20
-				const sub=nowPosition-startPosition
-				console.log(sub)
-				const indexBf=Math.floor(sub/20)
-				if(indexBf>=0&&indexBf<this.buffers.length){
-					this.$emit('change',this.buffers[indexBf])
+				if(this.timer){
+					clearTimeout(this.timer)
 				}
-			
+				this.timer=setTimeout(()=>{
+					const nowPosition=e.touches[0]['clientY']-89-25
+					const indexBf=Math.floor(nowPosition/20)
+					if(indexBf>=0&&indexBf<this.buffers.length){
+					this.$emit('change',this.buffers[indexBf])
+					}
+				},15)//事件节流
 			}
 		},
 		handleTouchEnd:function()
