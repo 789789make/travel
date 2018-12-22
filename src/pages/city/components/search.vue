@@ -54,6 +54,7 @@
 </style>
 
 <script>
+import { mapMutations } from 'vuex'
 	export default{
 		name:'search',
 		props:['cities'],
@@ -69,8 +70,9 @@
 			handleClickCity:function(city)
 			{
 				this.$router.push('/')
-				this.$store.commit('changeCity',city)
-			}
+				this.changeCity(city)
+			},
+			...mapMutations(['changeCity'])
 		},
 		computed:{
 			ifSearch:function(){
