@@ -18,9 +18,11 @@
 @import '~style/varibles.styl'
 .weekend
 	.weekend-title
-		background: #ccc
-		line-height: .6rem
+		background: #eee
+		line-height: .8rem
 		text-indent: .2rem
+		font-size: .2rem
+		font-weight: bold
 	.weekend-item
 		.item-img
 			overflow: hidden

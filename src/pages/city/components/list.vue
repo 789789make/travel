@@ -4,7 +4,10 @@
 		<div class="area">
 			<div class="title">当前城市</div>
 			<div class="container blockCity">
-				<div class='container-item nowCity'>{{city}}</div>
+				<div
+				 class='container-item nowCity' 
+				 @click='handleClickCity(city)'
+				 >{{city}}</div>
 			</div>
 		</div>
 		<div class="area">

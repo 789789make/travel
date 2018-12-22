@@ -19,9 +19,11 @@
 @import '~style/varibles.styl'
 .recommend
 	.recommend-title
-		background: #ccc
-		line-height: .6rem
+		background: #eee
+		line-height: .8rem
 		text-indent: .2rem
+		font-size: .2rem
+		font-weight: bold
 	.recommend-item
 		padding-bottom: .05rem
 		display: flex
