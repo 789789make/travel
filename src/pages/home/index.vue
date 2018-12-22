@@ -1,10 +1,12 @@
 <template>
+<div ref='wrapper'>
 <div>
-<home-header :city='city'></home-header>
+<home-header></home-header>
 <home-swiper :swiper='swiperData' ></home-swiper>
 <home-icons  :icons='iconsData'></home-icons>
 <home-recommend :recommend='recommendData'></home-recommend>
 <home-weekend :weekend='weekendData'></home-weekend>
+</div>
 </div>
 </template>
 <script>
@@ -22,7 +24,6 @@ export default{
     iconsData:[],
     recommendData:[],
     weekendData:[],
-    city:'北京'
     }
   },
    components:{

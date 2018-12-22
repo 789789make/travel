@@ -10,14 +10,6 @@
 		</div>
 		</swiper-slide>
 		<div class="swiper-pagination"  slot="pagination"></div>
-		<!-- <swiper-slide>
-		<div class="icon">
-			<div class="iconImg">
-				<img class="iconImg-content" src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" alt="">
-			</div>
-			<p class="icon-info">message</p>
-		</div>
-		</swiper-slide> -->
 		</swiper>
 	</div>
 </template>

@@ -5,8 +5,13 @@
 	</div>
 	<div class="search-content" v-show='ifSearch'>
 		<ul>
-			<li class="search-item" v-for='item of searchList' :key='item.id'>{{item.name}}</li>
-			<li class="search-item" v-show='!ifResult'>没有匹配的数据</li>
+				<li 
+				class="search-item" 
+				v-for='item of searchList' 
+				:key='item.id'
+				@click='handleClickCity(item.name)'
+				>{{item.name}}</li>
+				<li class="search-item" v-show='!ifResult'>没有匹配的数据</li>
 		</ul>
 	</div>
 	</div>
@@ -58,6 +63,13 @@
 				timer:null,
 				searchList:'',
 				ifResult:true
+			}
+		},
+		methods:{
+			handleClickCity:function(city)
+			{
+				this.$router.push('/')
+				this.$store.commit('changeCity',city)
 			}
 		},
 		computed:{

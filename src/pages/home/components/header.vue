@@ -6,7 +6,7 @@
 <div class="header-input">
 <span class="iconfont">&#xe632;</span> 输入城市景点/游玩主题</div>
 <router-link to='city'>
-<div class="header-right">{{this.city}} <span class="iconfont">&#xe6aa;</span></div>
+<div class="header-right">{{city}} <span class="iconfont">&#xe6aa;</span></div>
 </router-link>
 </div>
 </template>
@@ -23,6 +23,7 @@
 		width: .64rem
 		text-align: center
 	.header-input
+		border-radius: .1rem
 		margin-top: .12rem
 		height: .64rem
 		line-height: .64rem
@@ -32,20 +33,21 @@
 		flex:1
 		padding-left: .2rem
 	.header-right
+		$ellipsis()
+		padding: 0 .1rem
 		color: white
-		width: 1.24rem
 		float:right
 		text-align: center
 		font-size: .3rem
 </style>
 <script>
+import { mapState } from 'vuex'
 export default 
 {
   name:'homeHeader',
-  props:
-  {
-  	'city':String
-  }
+  computed:{
+  	...mapState(['city','num'])
+  },
 }
 </script>
 

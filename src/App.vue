@@ -14,4 +14,7 @@ export default {
 *{
 	touch-action: none;
 }
+a{
+	color:black
+}
 </style>

@@ -1,16 +1,21 @@
 <template>
 	<div class="list" ref='wrapper'>
-		<div >
+		<div>
 		<div class="area">
 			<div class="title">当前城市</div>
 			<div class="container blockCity">
-				<div class='container-item'>北京</div>
+				<div class='container-item nowCity'>{{city}}</div>
 			</div>
 		</div>
 		<div class="area">
 			<div class="title">热门城市</div>
 			<div class="container blockCity">
-				<div class='container-item' v-for='item of hotlist' :key='item.id'>{{item.name}}</div>
+				<div 
+				class='container-item' 
+				v-for='item of hotlist' 
+				:key='item.id'
+				@click='handleClickCity(item.name)'
+				>{{item.name}}</div>
 			</div>
 		</div>
 		<div 
@@ -18,12 +23,16 @@
 		v-for='(item,index) of citylist' 
 		:key='index'
 		:ref='index'
-		>
+		>	
 			<div class="title" >{{index}}</div>
-			<div class="container">
-				<div class="item" v-for='(items,index) of item'>{{items.name}}</div>
+				<div class="container">
+						<div class="item"
+				 		v-for='(items,index) of item'
+				 		@click='handleClickCity(items.name)'
+				 		>{{items.name}}
+				 		</div>
+				</div>
 			</div>
-		</div>
 		</div>
 	</div>
 	</div>
@@ -55,6 +64,8 @@
 				padding-left: .1rem
 				font-size: .30rem
 				$ellipsis()
+			.nowCity
+				color: $bgColor!important
 			.container-item
 				$ellipsis()
 				text-align:center
@@ -68,6 +79,7 @@
 </style>
 <script>
 import bscroll from 'better-scroll'
+import { mapState,mapActions,mapMutations } from 'vuex'
 export default
 {
 	name:'list',
@@ -76,7 +88,11 @@ export default
 	{
 		this.scroll = new bscroll(this.$refs.wrapper)
 	},
-	watch:{
+	computed:{
+		...mapState(['city'])
+	},
+	watch:
+	{
 			buffer:function()
 			{
 				if(this.buffer)
@@ -85,7 +101,16 @@ export default
 					this.scroll.scrollToElement(ele)
 				}
 			}
-
-		}
+	},
+	methods:
+	{
+		handleClickCity:function(city)
+		{
+			/*this.$store.dispatch('changeCity',city)*/
+			this.changeCity(city)
+			this.$router.push('/')
+		},
+		...mapActions(['changeCity'])
 	}
+}
 </script>
