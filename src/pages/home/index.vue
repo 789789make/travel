@@ -47,11 +47,11 @@ export default{
       this.weekendData=data.weekendList
   	}
   },
-  mounted(){
-    this.lastCity = this.city
-  	this.getHomeInfo()
-  },
+  // mounted(){
+  //   console.log('mounted')
+  // },
   activated(){//active在页面被重新加载时候触发
+     console.log('active')
     if(this.lastCity != this.city)
     {
       this.lastCity = this.city

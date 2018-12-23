@@ -1,21 +1,18 @@
 <template>
 	<div class="detail">
-		<banner></banner>
+		<banner :bannerImg='bannerImg' :gallaryImgs='gallaryImgs'></banner>
 		<detail-head></detail-head>
-		<detail-list :list = 'list'></detail-list>
-		<div class="container"></div>
+		<detail-list :categoryList = 'categoryList'></detail-list>
 	</div>
 </template>
-
 <style lang='stylus' scpoed>
-.container
-	height: 1500px
 </style>
 
 <script>
 import detailHead from './components/header'
 import banner from './components/banner'
 import detailList from './components/list'
+import axios from 'axios'
 export default
 {
 	name:'detail',
@@ -23,15 +20,36 @@ export default
 	{
 		banner,detailHead,detailList
 	},
+	methods:{
+		getDetailInfo:function()
+		{
+			axios.get('/api/detail.json',{
+				params:{
+					id:this.$route.params.id
+				}
+			}).then(this.handleGetDataSucc)
+		},
+		handleGetDataSucc:function(res){
+			var data = res.data
+			if(data.ret){
+				let detailData = data.data
+				this.sightName = detailData.sightName
+				this.bannerImg = detailData.bannerImg
+				this.gallaryImgs = detailData.gallaryImgs
+				this.categoryList = detailData.categoryList
+			}
+		}
+	},
+	mounted:function(){
+		this.getDetailInfo()
+	},
 	data(){
 		return{
-			list:
-			[
-			{id:1,title:'儿童票',children:[{title:'儿童3馆联票'},{title:'儿童5馆联票',children:[{title:'儿童3馆联票-子票'},{title:'儿童5馆联票-字票'}]},]},
-			{id:2,title:'学生票',children:[{title:'学生3馆联票'},{title:'学生5馆联票'}]},
-			{id:3,title:'成人票',children:[{title:'成人3馆联票'},{title:'成人5馆联票'}]},
-			{id:4,title:'特惠票',children:[{title:'超级优惠票1'},{title:'超级优惠票2'}]},
-			]
+			list:[],
+			sightName:'',
+			bannerImg:'',
+			gallaryImgs:[],
+			categoryList:[]
 		}
 	}
 }

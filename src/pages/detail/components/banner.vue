@@ -1,12 +1,12 @@
 <template>
 	<div class="detail-banner" @click='handleChangeGallaryShow'>
-		<img class="banner-img" src="//img1.qunarzz.com/sight/p0/1712/16/16dd785ae3e2447ba3.img.jpg_600x330_38a5c69c.jpg" alt="">
+		<img class="banner-img" :src="bannerImg" alt="">
 		<div class="banner-info">
 		<div class="img-number"><span class="iconfont icon-img">&#xe67b;</span> 31</div>
 		<div class="banner-name">峨眉山(AAAAA景区)</div>
 		</div>
 		<div class="banner-gradient"></div>
-		<common-galarry :imgs='imgs' v-show='showGallary' @hide='handleChangeGallaryShow'></common-galarry>
+		<common-galarry :gallaryImgs='this.gallaryImgs' v-show='showGallary'  @hide='handleChangeGallaryShow'></common-galarry>
 	</div>
 </template>
 
@@ -54,6 +54,7 @@ export default
 	components:{
 		commonGalarry
 	},
+	props:['bannerImg','gallaryImgs'],
 	methods:
 	{
 		handleChangeGallaryShow:function()
@@ -64,7 +65,6 @@ export default
 	data(){
 		return{
 			showGallary: false,
-			imgs:['http://img1.qunarzz.com/sight/p0/1712/16/16dd785ae3e2447ba3.img.jpg_r_800x800_dd060a69.jpg','http://img1.qunarzz.com/sight/p0/1712/2f/2fde369d83e19a8ba3.img.jpg_r_800x800_f300c3cd.jpg']
 		}
 	}
 }

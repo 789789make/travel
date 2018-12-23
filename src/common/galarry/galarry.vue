@@ -2,7 +2,7 @@
 	<div class="galarry" @touch='handleHideGallary'>
 		<div class="container">
 			<swiper :options='swiperOptions'>
-    			<swiper-slide v-for='item of imgs' :key='item'>
+    			<swiper-slide v-for='item of gallaryImgs' :key='item'>
     				<div class="container-img">
     					<img class="swiper-img" :src="item" alt="">
     				</div>
@@ -16,7 +16,7 @@
 
 <style lang='stylus' scoped>
 .galarry
-	z-index: 3
+	z-index:99999
 	position: fixed
 	top: 0
 	left: 0
@@ -49,7 +49,7 @@
 	export default{
 		name: 'commonGalarry',
 		props:{
-			imgs:{
+			gallaryImgs:{
 				type : Array,
 				default(){
 					return []
