@@ -1,15 +1,28 @@
 <template>
 	<div class="header">
-		<div class="header-return" >
-			<span class="iconfont icon-back">&#xe624;</span>
+		<div 
+		class="header-return" 
+		v-show='ifTop'>
+			<router-link
+			 tag='span'
+			 to='/'
+			 class="iconfont icon-back"
+			 >
+			&#xe624;</router-link>
 		</div>
-		<div class="header-fixed">
-			<span class="iconfont icon-back">&#xe624;</span>
+		<div 
+		class="header-fixed"
+		v-show='!ifTop' :style = "opacityStyle">
+			<router-link  
+			tag='span' 
+			to='/' 
+			class="iconfont icon-back"
+			>
+			&#xe624;</router-link>
 			峨眉山
 		</div>
 	</div>
 </template>
-
 <style lang='stylus' scoped>
 @import '~style/varibles.styl'
 .header
@@ -17,7 +30,9 @@
 	top: 0
 	left: 0
 	right: 0
+	z-index: 999
 	.header-fixed
+		opacity : 0
 		position: absolute
 		top: 0
 		line-height: .88rem
@@ -48,6 +63,30 @@
 
 <script>
 export default{
-	name: 'detail-header'
+	name: 'detail-header',
+	data(){
+		return {
+			ifTop:true,
+			opacityStyle:{
+				opacity:0
+			}
+		}
+	},
+	methods:{
+		showScrollTop:function(){
+			var scrollTop = document.documentElement.scrollTop
+			if(scrollTop&&scrollTop <= 200){
+				this.ifTop = false
+				this.opacityStyle.opacity = scrollTop/200
+			}
+			else if(scrollTop === 0){
+				this.ifTop = true
+			}	
+		}
+	},
+	activated(){
+		console.log('actived');
+		window.addEventListener('scroll',this.showScrollTop)
+	}
 }
 </script>

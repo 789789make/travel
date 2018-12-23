@@ -30,7 +30,7 @@
 		top: 3.0rem
 		left: .15rem
 		color: white
-		z-index: 2
+		z-index: 1
 		.img-number
 			width: .8rem
 			font-size: .25rem
