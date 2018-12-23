@@ -84,9 +84,11 @@ export default{
 			}	
 		}
 	},
-	activated(){
-		console.log('actived');
-		window.addEventListener('scroll',this.showScrollTop)
+	activated(){//进入页面触发的钩子函数,前提是用了keep-alive
+		window.addEventListener('scroll',this.showScrollTop)//会有bug，切换到其他页面也会有scroll事件
+	},
+	deactivated(){//离开页面触发的钩子函数
+		window.removeEventListener('scroll',this.showScrollTop)
 	}
 }
 </script>
