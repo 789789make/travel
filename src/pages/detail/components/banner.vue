@@ -13,13 +13,13 @@
 <style lang='stylus' scpoed>
 .detail-banner
 	overflow: hidden
-	pisition: relative
+	position: relative
 	padding-bottom: 55%
 	height: 0
 	.banner-gradient
 		height: .25rem
 		position: absolute
-		top: 3.9rem
+		bottom: 0rem
 		left: 0 
 		right: 0
 		background-image: linear-gradient( top, rgba( 0, 0, 0, 0), rgba( 0, 0, 0, .8))
@@ -27,7 +27,7 @@
 		width: 100%
 	.banner-info
 		position: absolute
-		top: 3.0rem
+		bottom: .3rem
 		left: .15rem
 		color: white
 		z-index: 1
