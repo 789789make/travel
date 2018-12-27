@@ -41,6 +41,7 @@ export default
 		}
 	},
 	mounted:function(){
+		console.log('mounted');
 		this.getDetailInfo()
 	},
 	data(){
