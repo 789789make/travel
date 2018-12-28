@@ -17,8 +17,6 @@
 	display: flex
 	line-height: .86rem
 	background: $bgColor
-	position: relative
-	z-index: 5
 	color: #fff
 	.header-left
 		float:left

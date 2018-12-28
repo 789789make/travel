@@ -10,6 +10,7 @@ import 'style/reset.css'
 import 'style/border.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+import 'babel-polyfill'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body);//快速点击，移动端click有300ms延迟
