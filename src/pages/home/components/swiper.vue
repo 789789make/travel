@@ -1,5 +1,5 @@
 <template>
-	<div class="wrapper">
+	<div class="wrapperSwiper">
 	<swiper :options="swiperOption" ref="mySwiper" v-if='ifSwiper'>
     <swiper-slide v-for='item in swiper' :key='item.id'>
     	<img class="swiper-img" :src="item.imgUrl" alt="">
@@ -39,10 +39,9 @@
 	}
 </script>
 <style lang='stylus' scoped>
-.wrapper >>> .swiper-pagination-bullet-active
+.wrapperSwiper >>> .swiper-pagination-bullet-active
 	background: white
-.wrapper
-	overflow:hidden
+.wrapperSwiper
 	height: 0
 	width: 100%
 	padding-bottom: 30.5%

@@ -89,7 +89,7 @@ export default
 	props:['hotlist','citylist','buffer'],
 	mounted ()
 	{
-		this.scroll = new bscroll(this.$refs.wrapper)
+		this.scroll = new bscroll(this.$refs.wrapper,{click: true})
 	},
 	computed:{
 		...mapState(['city'])

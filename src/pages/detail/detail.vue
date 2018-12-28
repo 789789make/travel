@@ -1,8 +1,10 @@
 <template>
-	<div class="detail">
+	<div class="detail" ref='detail'>
+		<div>
 		<banner :bannerImg='bannerImg' :gallaryImgs='gallaryImgs'></banner>
 		<detail-head></detail-head>
 		<detail-list :categoryList = 'categoryList'></detail-list>
+		</div>
 	</div>
 </template>
 <style lang='stylus' scpoed>
@@ -41,7 +43,6 @@ export default
 		}
 	},
 	mounted:function(){
-		console.log('mounted');
 		this.getDetailInfo()
 	},
 	data(){

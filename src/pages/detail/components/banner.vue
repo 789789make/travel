@@ -2,11 +2,13 @@
 	<div class="detail-banner" @click='handleChangeGallaryShow'>
 		<img class="banner-img" :src="bannerImg" alt="">
 		<div class="banner-info">
-		<div class="img-number"><span class="iconfont icon-img">&#xe67b;</span> 31</div>
+		<div class="img-number"><span class="iconfont icon-img">&#xe67b;</span> {{this.gallaryImgs.length}}</div>
 		<div class="banner-name">峨眉山(AAAAA景区)</div>
 		</div>
 		<div class="banner-gradient"></div>
+		<fade-animation>
 		<common-galarry :gallaryImgs='this.gallaryImgs' v-show='showGallary'  @hide='handleChangeGallaryShow'></common-galarry>
+		</fade-animation>
 	</div>
 </template>
 
@@ -33,7 +35,8 @@
 		z-index: 1
 		.img-number
 			width: .8rem
-			font-size: .25rem
+			font-size: .3rem
+			letter-space: 1rem
 			border-radius: 1rem
 			background: rgba(0,0,0,.6)
 			margin-bottom: .1rem
@@ -47,12 +50,13 @@
 </style>
 
 <script>
+import fadeAnimation from 'common/fade/fade'
 import commonGalarry from 'common/galarry/galarry'
 export default
 {
 	name:'detailBanner',
 	components:{
-		commonGalarry
+		commonGalarry,fadeAnimation
 	},
 	props:['bannerImg','gallaryImgs'],
 	methods:

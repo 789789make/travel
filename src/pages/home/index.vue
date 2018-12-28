@@ -1,5 +1,5 @@
 <template>
-<div ref='wrapper'>
+<div ref='wrapperIndex' class="wrapperIndex" >
 <div>
 <home-header></home-header>
 <home-swiper :swiper='swiperData' ></home-swiper>
@@ -10,6 +10,7 @@
 </div>
 </template>
 <script>
+import bscroll from 'better-scroll'
 import homeHeader from'./components/header'
 import homeSwiper from'./components/swiper'
 import homeIcons from './components/icons'
@@ -47,11 +48,8 @@ export default{
       this.weekendData=data.weekendList
   	}
   },
-  // mounted(){
-  //   console.log('mounted')
-  // },
-  activated(){//active在页面被重新加载时候触发
-     console.log('active')
+
+  activated(){//active在页面被重新加载时候触发 
     if(this.lastCity != this.city)
     {
       this.lastCity = this.city
@@ -60,5 +58,5 @@ export default{
   },
 }
 </script>
-<style>
+<style lang='stylus' scoped>
 </style>

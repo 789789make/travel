@@ -16,15 +16,9 @@ export default {
 
 <style>
 *{
-	touch-action: none;
+	
 }
 a{
 	color:black
 }
-.pageSlide-enter , .pageSlide-leave-to{
-			transform: translate(-100%,0)
-		}
-.pageSlide-enter-active , .pageSlide-leave-to{
-			transition:all .5s;
-		}
 </style>
